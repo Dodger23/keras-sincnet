@@ -2,19 +2,18 @@ import os
 #import scipy.io.wavfile
 # python test.py --cfg=cfg/SincNet_TIMIT.cfg
 import soundfile as sf
-
-from keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping, CSVLogger
-from keras.callbacks import Callback
+from tensorflow.keras.callbacks import TensorBoard, ModelCheckpoint, EarlyStopping, CSVLogger
+from tensorflow.keras.callbacks import Callback
 import sys
 import numpy as np
-from keras.utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 from data_io import ReadList,read_conf,str_to_bool
-from keras.optimizers import RMSprop
-from keras import backend as K
+from tensorflow.keras.optimizers import RMSprop, Adam
+#from tensorflow.keras import backend as K
 import gc
 from tqdm import tqdm
-from keras.layers import MaxPooling1D, Conv1D, LeakyReLU, BatchNormalization, Dense, Flatten
-K.clear_session()
+from tensorflow.keras.layers import MaxPooling1D, Conv1D, LeakyReLU, BatchNormalization, Dense, Flatten
+#K.clear_session()
 from test import Validation
 
 
@@ -68,7 +67,7 @@ from conf import *
 from keras import models, layers
 import numpy as np
 import sincnet
-from keras.layers import Dense, Dropout, Activation
+from tensorflow.keras.layers import Dense, Dropout, Activation
 
 print('N_filt '+str(cnn_N_filt))
 print('N_filt len '+str(cnn_len_filt))
